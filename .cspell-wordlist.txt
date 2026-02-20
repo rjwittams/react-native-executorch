@@ -115,3 +115,8 @@ antonov
 rfdetr
 basemodule
 IMAGENET
+DETR
+detr
+metaprogramming
+ktlint
+lefthook
