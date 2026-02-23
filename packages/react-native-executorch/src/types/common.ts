@@ -194,6 +194,7 @@ export interface Frame {
   getNativeBuffer(): { pointer: bigint; release(): void };
 }
 
+/** *
  * A readonly record mapping string keys to numeric or string values.
  * Used to represent enum-like label maps for models.
  *
