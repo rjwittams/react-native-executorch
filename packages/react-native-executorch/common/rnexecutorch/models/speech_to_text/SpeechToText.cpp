@@ -132,7 +132,7 @@ void SpeechToText::stream(std::shared_ptr<jsi::Function> callback,
 
   while (this->isStreaming) {
     if (!this->readyToProcess ||
-        this->processor->audioBuffer.size() < SpeechToText::kMinAudioSamples) {
+        this->processor->audioBufferSize() < SpeechToText::kMinAudioSamples) {
       std::this_thread::sleep_for(std::chrono::milliseconds(100));
       continue;
     }
