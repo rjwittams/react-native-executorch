@@ -1,5 +1,7 @@
 #pragma once
 
+#include <mutex>
+
 #include "rnexecutorch/models/speech_to_text/asr/ASR.h"
 #include "rnexecutorch/models/speech_to_text/stream/HypothesisBuffer.h"
 #include "rnexecutorch/models/speech_to_text/types/ProcessResult.h"
@@ -15,11 +17,15 @@ public:
   types::ProcessResult processIter(const types::DecodingOptions &options);
   std::vector<types::Word> finish();
 
-  std::vector<float> audioBuffer;
+  /// Thread-safe accessor for the audio buffer size.
+  size_t audioBufferSize();
 
 private:
   const asr::ASR *asr;
   constexpr static int32_t kSamplingRate = 16000;
+
+  std::vector<float> audioBuffer;
+  std::mutex audioBufferMutex_;
 
   HypothesisBuffer hypothesisBuffer;
   float bufferTimeOffset = 0.0f;

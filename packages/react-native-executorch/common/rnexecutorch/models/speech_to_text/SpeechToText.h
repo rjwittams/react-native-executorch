@@ -1,10 +1,11 @@
 #pragma once
 
-#include "rnexecutorch/models/speech_to_text/stream/OnlineASRProcessor.h"
-#include <rnexecutorch/models/speech_to_text/types/TranscriptionResult.h>
 #include <span>
 #include <string>
 #include <vector>
+
+#include "rnexecutorch/models/speech_to_text/stream/OnlineASRProcessor.h"
+#include <rnexecutorch/models/speech_to_text/types/TranscriptionResult.h>
 
 namespace rnexecutorch {
 
