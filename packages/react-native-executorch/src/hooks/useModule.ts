@@ -44,7 +44,6 @@ export const useModule = <
         await moduleInstance.load(model, setDownloadProgress);
         setIsReady(true);
 
-        // Extract runOnFrame worklet from VisionModule if available
         // Use "state trick" to make the worklet serializable for VisionCamera
         if ('runOnFrame' in moduleInstance) {
           const worklet = moduleInstance.runOnFrame;
