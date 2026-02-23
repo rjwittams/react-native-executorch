@@ -21,6 +21,7 @@ microcontrollers
 notimestamps
 seqs
 smollm
+llms
 qwen
 XNNPACK
 EFFICIENTNET
@@ -115,3 +116,6 @@ antonov
 worklet
 worklets
 BGRA
+rfdetr
+basemodule
+IMAGENET

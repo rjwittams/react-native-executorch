@@ -107,6 +107,10 @@ public:
           synchronousHostFunction<&Model::getPromptTokenCount>,
           "getPromptTokenCount"));
 
+      addFunctions(JSI_EXPORT_FUNCTION(
+          ModelHostObject<Model>,
+          synchronousHostFunction<&Model::countTextTokens>, "countTextTokens"));
+
       addFunctions(
           JSI_EXPORT_FUNCTION(ModelHostObject<Model>,
                               synchronousHostFunction<&Model::setCountInterval>,
@@ -124,8 +128,17 @@ public:
                                        synchronousHostFunction<&Model::setTopp>,
                                        "setTopp"));
 
+      addFunctions(JSI_EXPORT_FUNCTION(
+          ModelHostObject<Model>,
+          synchronousHostFunction<&Model::getMaxContextLength>,
+          "getMaxContextLength"));
+
       addFunctions(
           JSI_EXPORT_FUNCTION(ModelHostObject<Model>, unload, "unload"));
+
+      addFunctions(JSI_EXPORT_FUNCTION(ModelHostObject<Model>,
+                                       synchronousHostFunction<&Model::reset>,
+                                       "reset"));
     }
 
     if constexpr (meta::SameAs<Model, models::text_to_image::TextToImage>) {

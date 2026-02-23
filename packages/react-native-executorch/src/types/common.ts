@@ -193,3 +193,17 @@ export interface Frame {
    */
   getNativeBuffer(): { pointer: bigint; release(): void };
 }
+
+ * A readonly record mapping string keys to numeric or string values.
+ * Used to represent enum-like label maps for models.
+ *
+ * @category Types
+ */
+export type LabelEnum = Readonly<Record<string, number | string>>;
+
+/**
+ * A readonly triple of values, typically used for per-channel normalization parameters.
+ *
+ * @category Types
+ */
+export type Triple<T> = readonly [T, T, T];
